@@ -49,7 +49,7 @@
                     <v-list-item
                         class="px-2"
                         key="orders"
-                        to="/boundedContext318s/orders"
+                        to="/orders/orders"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
@@ -147,7 +147,7 @@ export default {
                 title: 'Order', 
                 description: '', 
                 key: 'orders', 
-                route: '/boundedContext318s/orders',
+                route: '/orders/orders',
                 ImageUrl: '',
             },
             

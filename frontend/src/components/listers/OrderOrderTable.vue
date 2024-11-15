@@ -31,7 +31,7 @@
                         </v-fab-transition>
                     </template>
 
-                    <DeliveryDelivery :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <OrderOrder :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                             style="postition:absolute; top:2%; right:2%"
@@ -50,12 +50,12 @@
 
 <script>
     const axios = require('axios').default;
-    import DeliveryDelivery from './../DeliveryDelivery.vue';
+    import OrderOrder from './../OrderOrder.vue';
 
     export default {
-        name: 'DeliveryDeliveryManager',
+        name: 'OrderOrderManager',
         components: {
-            DeliveryDelivery,
+            OrderOrder,
         },
         props: {
             offline: Boolean,
@@ -70,9 +70,8 @@
                     { text: "userid", value: "userid" },
                     { text: "productid", value: "productid" },
                     { text: "qty", value: "qty" },
-                    { text: "status", value: "status" },
                 ],
-            delivery : [],
+            order : [],
             newValue: {},
             tick : true,
             openDialog : false,
@@ -83,15 +82,14 @@
                 return;
             }
 
-            var temp = await axios.get(axios.fixUrl('/deliveries'))
-            temp.data._embedded.deliveries.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
-            this.values = temp.data._embedded.deliveries;
+            var temp = await axios.get(axios.fixUrl('/orders'))
+            temp.data._embedded.orders.map(obj => obj.id=obj._links.self.href.split("/")[obj._links.self.href.split("/").length - 1])
+            this.values = temp.data._embedded.orders;
 
             this.newValue = {
                 'userid': '',
                 'productid': '',
                 'qty': 0,
-                'status': '',
             }
         },
         methods: {

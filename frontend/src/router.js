@@ -8,8 +8,8 @@ Vue.use(Router);
 import DeliveryDeliveryManager from "./components/listers/DeliveryDeliveryCards"
 import DeliveryDeliveryDetail from "./components/listers/DeliveryDeliveryDetail"
 
-import BoundedContext318OrderManager from "./components/listers/BoundedContext318OrderCards"
-import BoundedContext318OrderDetail from "./components/listers/BoundedContext318OrderDetail"
+import OrderOrderManager from "./components/listers/OrderOrderCards"
+import OrderOrderDetail from "./components/listers/OrderOrderDetail"
 
 
 export default new Router({
@@ -28,14 +28,14 @@ export default new Router({
             },
 
             {
-                path: '/boundedContext318s/orders',
-                name: 'BoundedContext318OrderManager',
-                component: BoundedContext318OrderManager
+                path: '/orders/orders',
+                name: 'OrderOrderManager',
+                component: OrderOrderManager
             },
             {
-                path: '/boundedContext318s/orders/:id',
-                name: 'BoundedContext318OrderDetail',
-                component: BoundedContext318OrderDetail
+                path: '/orders/orders/:id',
+                name: 'OrderOrderDetail',
+                component: OrderOrderDetail
             },
 
 

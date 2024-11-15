@@ -30,7 +30,7 @@ jobs:
       - name: Build Maven Projects
         run: |
           mvn clean package -f ./delivery/pom.xml
-          mvn clean package -f ./BoundedContext318/pom.xml
+          mvn clean package -f ./order/pom.xml
 
       - name: Docker Build and push for Delivery
         uses: docker/build-push-action@v4
@@ -42,13 +42,13 @@ jobs:
             ghcr.io/${{ github.repository }}/delivery:latest
             ghcr.io/${{ github.repository }}/delivery:${{ github.ref_name }}
             
-      - name: Docker Build and push for BoundedContext318
+      - name: Docker Build and push for Order
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext318
+          context: ./order
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext318:latest
-            ghcr.io/${{ github.repository }}/boundedcontext318:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/order:latest
+            ghcr.io/${{ github.repository }}/order:${{ github.ref_name }}
             

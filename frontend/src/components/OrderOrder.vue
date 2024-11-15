@@ -9,17 +9,16 @@
         </template>
 
         <v-card-title v-if="value._links">
-            Delivery # {{decode(value._links.self.href.split("/")[value._links.self.href.split("/").length - 1])}}
+            Order # {{decode(value._links.self.href.split("/")[value._links.self.href.split("/").length - 1])}}
         </v-card-title >
         <v-card-title v-else>
-            Delivery
+            Order
         </v-card-title >        
 
         <v-card-text style="background-color: white;">
             <String label="Userid" v-model="value.userid" :editMode="editMode" :inputUI="''"/>
             <String label="Productid" v-model="value.productid" :editMode="editMode" :inputUI="''"/>
             <Number label="Qty" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
-            <String label="Status" v-model="value.status" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">
@@ -38,7 +37,7 @@
                     text
                     @click="save"
                 >
-                저장
+                    Order
                 </v-btn>
                 <v-btn
                     color="primary"
@@ -82,7 +81,7 @@
 
 
     export default {
-        name: 'DeliveryDelivery',
+        name: 'OrderOrder',
         components:{
         },
         props: {
@@ -137,7 +136,7 @@
 
                     if(!this.offline) {
                         if(this.isNew) {
-                            temp = await axios.post(axios.fixUrl('/deliveries'), this.value)
+                            temp = await axios.post(axios.fixUrl('/orders'), this.value)
                         } else {
                             temp = await axios.put(axios.fixUrl(this.value._links.self.href), this.value)
                         }

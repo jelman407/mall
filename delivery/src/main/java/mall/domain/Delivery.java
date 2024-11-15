@@ -17,6 +17,14 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String userid;
+
+    private String productid;
+
+    private Integer qty;
+
+    private String status;
+
     public static DeliveryRepository repository() {
         DeliveryRepository deliveryRepository = DeliveryApplication.applicationContext.getBean(
             DeliveryRepository.class
